@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+#Ignore typical mac files
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
 # C extensions
 *.so
 
