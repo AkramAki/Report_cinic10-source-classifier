@@ -15,7 +15,7 @@
   captions=tableheading,  % correct spacing for table headings
   titlepage=firstiscover, % symmetrical margins on titlepage
   headings=normal         % size of chapter headings slightly smaller
-]{scrbook}
+]{scrartcl}
 
 
 % Define our beloved tu colour:
@@ -32,7 +32,7 @@
 \KOMAoption{headsepline}{0.5pt}
 \if@tucolor%
   \addtokomafont{title}{\color{tugreen}}          % title on titlepage
-  \addtokomafont{chapter}{\color{tugreen}}     % headlines of the chapters, sections etc. 
+  \addtokomafont{section}{\color{tugreen}}     % headlines of the chapters, sections etc. 
   \setkomafont{headsepline}{\color{tugreen}}        % line between header and text body
   \DeclareCaptionFont{tugreen}{\color{tugreen}}
   \captionsetup{%
@@ -53,7 +53,7 @@
 % equation numbers of form chapter.equationnumber
 \RequirePackage{amsmath}%
 \renewcommand{\theequation}{\thechapter{}.\arabic{equation}}%
-\numberwithin{equation}{chapter}%
+\numberwithin{equation}{section}%
 
 % store the title in \thetitle, so one can access it in the document
 \let\oldtitle\title%
@@ -62,17 +62,17 @@
 % Provide all translations through the "translations" package
 \RequirePackage{translations}
 
-\DeclareTranslation{German}{thesisclass}{Arbeit zur Erlangung des akademischen Grades}
-\DeclareTranslation{English}{thesisclass}{Thesis for obtaining the academic degree}
+\DeclareTranslation{German}{thesisclass}{Arbeit zur Erlangung des akademischen Grades} % Not translated because no german version here needed
+\DeclareTranslation{English}{thesisclass}{Course Report}
 
 \DeclareTranslation{German}{birthplace}{geboren in}
 \DeclareTranslation{English}{birthplace}{born in}
 
 \DeclareTranslation{German}{firstcorrector}{Erstgutachter}
-\DeclareTranslation{English}{firstcorrector}{Primary reviewer}
+\DeclareTranslation{English}{firstcorrector}{First reviewer}
 
 \DeclareTranslation{German}{secondcorrector}{Zweitgutachter}
-\DeclareTranslation{English}{secondcorrector}{secondary reviewer}
+\DeclareTranslation{English}{secondcorrector}{Second reviewer}
 
 \DeclareTranslation{German}{submissiondate}{Abgabedatum}
 \DeclareTranslation{English}{submissiondate}{Submission date}

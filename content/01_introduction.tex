@@ -1,0 +1,23 @@
+\section{Introduction}
+
+The automated classification of visual data is one of the central tasks in modern machine learning. Over the past decade, datasets such as \textbf{CIFAR-10} and \textbf{ImageNet} have played a 
+pivotal role in the development and evaluation of deep learning models. These datasets differ not only in resolution and content diversity, but also in how images are collected, 
+preprocessed, and labeled. While CIFAR-10 consists of small, uniformly processed images of objects centered against clean backgrounds, ImageNet offers a broader and more varied selection 
+of real world scenes.
+The \textbf{CINIC-10 dataset} (CINIC = \textit{CINIC Is Not ImageNet or CIFAR}) merges images from CIFAR-10 and downsampled ImageNet into a unified 10-class structure. 
+It was primarily created to bridge the gap between the simplicity of CIFAR-10 and the complexity of ImageNet, enabling more robust benchmarking. However, this fusion may also 
+introduce domain-specific artifacts, which could prevent certain machine learning approaches from reaching their full potential.
+In this project, we explore the question:
+\begin{center}
+\textbf{\textit{Can a ML model distinguish the original source of an image in CINIC-10?}}
+\end{center}
+To answer this, we analyzed the dataset at multiple levels. First, we investigated low-level statistical properties, such as per-class RGB channel means and variances, to detect structural 
+biases between the two sources. For instance, CIFAR-10 images often appear more ``stock-like'', meaning well-centered, consistently lit, and visually uniform. ImageNet derived images tend 
+to be more diverse, naturalistic, and less curated in appearance.
+Second, we trained a variety of models, ranging from shallow multi-layer perceptrons to convolutional neural networks (CNNs), to predict the image source. 
+We also experimented with classical machine learning methods such as random forests and compared their performance to neural models. 
+Custom data generators were implemented to efficiently stream image batches during training, allowing us to scale to tens of thousands of samples without exceeding memory limits.
+In addition to evaluating model performance, we investigated interpretability. We visualized feature maps and learned convolutional kernels to better understand how the models identify 
+domain specific features and whether these features reflect meaningful differences between CIFAR-10 and ImageNet samples.
+This report presents the dataset and the formulation of the source classification task, outlines the modeling approaches and discusses our findings with a 
+focus on accuracy and what the models may have learned about image domain differences.

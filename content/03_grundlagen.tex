@@ -1,4 +1,4 @@
-\chapter{Wichtige Hinweise zum Dokument}\label{make}
+\section{Wichtige Hinweise zum Dokument}\label{make}
 
 Diese Vorlage ist auf die Kompilierung mit \texttt{lualatex} ausgelegt. 
 Als Dokumentenklasse  wird die \KOMAScript\-Klasse \texttt{scrbook} verwendet.
@@ -33,7 +33,7 @@ Ordner zu erzeugen, dies ist mit der \texttt{--output-directory} Option möglich
 \texttt{latexmk --output-directory=build --lualatex BachelorArbeit.tex}
 
 
-\section{Erstellen des Ausgabedokuments mit Make}
+\subsection{Erstellen des Ausgabedokuments mit Make}
 
 Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisch alle Schritte ausführt, die für das fertige Dokument nötig sind.
 Die Ausgabe erfolgt dabei in den Unterordner \texttt{build/}.
@@ -46,8 +46,8 @@ Download und weitere Informationen zu Make gibt es unter \cite{make}. Die Befehl
 Wenn Sie sie unter Windows nutzen wollen, benötigen Sie einen Bash-Emulator, wie Git Bash, Download unter \cite{gitbash} möglich.
 Wenn Sie Make installiert haben, rufen Sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
 
-\section{Erstellen des Ausgabedokuments mit Texmaker}
-\subsection{Einrichten der nötigen Befehle}
+\subsection{Erstellen des Ausgabedokuments mit Texmaker}
+\subsubsection{Einrichten der nötigen Befehle}
 Ein beliebter Editor für alle Betriebssysteme ist Texmaker, Download unter \cite{texmaker}.
 Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinierten Befehl hinzu:
 \begin{enumerate}[nosep]
@@ -70,13 +70,13 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
 In Abbildung \ref{fig:texmaker} ist ein Screenshot des Befehlsmenü gezeigt. Ihren Befehl können Sie nun im Drop-Down-Menü zum 
 Kompilieren des Dokuments auswählen und mit einem Klick auf den Pfeil starten.
 
-\subsection{Aufräumen}
+\subsubsection{Aufräumen}
 
 Nach einem \LaTeX-Fehler ist es oft notwendig, die erstellten Hilfsdateien zu löschen.
 Klicken Sie hierzu auf \emph{Werkzeuge}→\emph{Aufräumen}.
 
 
-\chapter{\LaTeX-Grundlagen}
+\section{\LaTeX-Grundlagen}
 
 Bitte beachten Sie beim Schreiben der Arbeit folgende Konventionen bzw. Grundlagen:
 
@@ -98,7 +98,7 @@ Bitte beachten Sie beim Schreiben der Arbeit folgende Konventionen bzw. Grundlag
 
 \end{itemize}
 
-\section{Zahlen und Einheiten}
+\subsection{Zahlen und Einheiten}
 
 Jede Zahl, jede Einheit und jede Zahl mit Einheit sollte mit Hilfe der in dem Paket \texttt{siunitx} zur Verfügung gestellten Befehle gesetzt werden.
 Grundsätzlich gilt: Einheiten werden aufrecht gesetzt und haben ein kleines Leerzeichen (\verb+\,+) Abstand zu ihrer Zahl. 
@@ -136,7 +136,7 @@ Diese Befehle sollten stets genutzt werden, wenn Zahlen angegeben werden.
 Sie funktionieren sowohl im Text- als auch im Mathematikmodus.
 In Tabelle \ref{tab:si} sind einige Beispiele aufgetragen. Bitte lesen Sie die Dokumentation \cite{siunitx}.
 
-\section{Das Literaturverzeichnis}
+\subsection{Das Literaturverzeichnis}
 
 Das Literaturverzeichnis wird mit Hilfe von BibLaTeX und biber erstellt.
 Tragen Sie alle ihre Quellen in die Datei \texttt{references.bib} ein, Sie enthält bereits
