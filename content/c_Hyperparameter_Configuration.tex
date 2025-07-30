@@ -1,28 +1,74 @@
 \section{Hyperparameter Configurations}
 \label{sec:Hyperparameter Configurations}
 
+% \begin{table}[H]
+%     \centering
+%     \caption{Ten out of 30 selected hyperparameter configurations explored during model tuning with Keras Tuner. Each configuration specifies 
+%     convolutional filter sizes and kernel dimensions of the first convolution Layer, dropout rates (DR), dense layer size (DU = Dense Units), 
+%     learning rate, and whether a second convolutional layer was used an its corresponding Filter number and Kernel size. 
+%     These settings were evaluated to optimize validation accuracy.}
+%     \label{tab:Hyperparameter_Config_tab}
+%     \begin{tabular}{lrrlrrrrr}
+%         \hline
+%         \textbf{ID} & \textbf{Filt. 1} & \textbf{Kern. 1} & \textbf{Conv 2} & \textbf{DR} & \textbf{DU} & \textbf{LR} & 
+%         \textbf{Filt. 2} & \textbf{Kern. 2} \\
+%         \hline
+%         P00 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
+%         P01 & 16 & 3 & True  & 0.2 & 48  & 0.00023 & 40 & 3 \\
+%         P02 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
+%         P03 & 16 & 3 & True  & 0.1 & 64  & 0.00051 & 32 & 3 \\
+%         P04 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
+%         P05 & 32 & 5 & True  & 0.3 & 96  & 0.00142 & 48 & 5 \\
+%         P06 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
+%         P07 & 8  & 5 & True  & 0.4 & 48  & 0.00018 & 8  & 3 \\
+%         P08 & 40 & 3 & False & 0.3 & 16  & 0.00156 &    &   \\
+%         P09 & 16 & 3 & True  & 0.5 & 80  & 0.00074 & 16 & 5 \\
+%         \hline
+%     \end{tabular}
+% \end{table}
+
 \begin{table}[H]
     \centering
-    \caption{Ten out of 30 selected hyperparameter configurations explored during model tuning with Keras Tuner. Each configuration specifies 
-    convolutional filter sizes and kernel dimensions of the first convolution Layer, dropout rates (DR), dense layer size (DU = Dense Units), 
-    learning rate, and whether a second convolutional layer was used an its corresponding Filter number and Kernel size. 
+    \caption{All 30 selected hyperparameter configurations explored during model tuning with Keras Tuner. Each configuration specifies 
+    convolutional filter sizes and kernel dimensions of the first convolution layer, dropout rates (DR), dense layer size (DU~=~Dense~Units), 
+    learning rate and whether a second convolutional layer was used and its corresponding filter number and kernel size. 
     These settings were evaluated to optimize validation accuracy.}
     \label{tab:Hyperparameter_Config_tab}
     \begin{tabular}{lrrlrrrrr}
         \hline
-        \textbf{ID} & \textbf{Filt. 1} & \textbf{Kern. 1} & \textbf{Conv 2} & \textbf{DR} & \textbf{DU} & \textbf{LR} & 
-        \textbf{Filt. 2} & \textbf{Kern. 2} \\
+        \textbf{ID} & \textbf{Filt. 1} & \textbf{Kern. 1} & \textbf{Conv 2} & \textbf{Filt. 2} & \textbf{Kern. 2} 
+        & \textbf{DR} & \textbf{DU} & \textbf{LR} \\
         \hline
-        P00 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
-        P01 & 16 & 3 & True  & 0.2 & 48  & 0.00023 & 40 & 3 \\
-        P02 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
-        P03 & 16 & 3 & True  & 0.1 & 64  & 0.00051 & 32 & 3 \\
-        P04 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
-        P05 & 32 & 5 & True  & 0.3 & 96  & 0.00142 & 48 & 5 \\
-        P06 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
-        P07 & 8  & 5 & True  & 0.4 & 48  & 0.00018 & 8  & 3 \\
-        P08 & 40 & 3 & False & 0.3 & 16  & 0.00156 &    &   \\
-        P09 & 16 & 3 & True  & 0.5 & 80  & 0.00074 & 16 & 5 \\
+        P00 & 40 & 3 & True  & 40 & 3 & 0.2 & 128 & 0.00034 \\
+        P01 & 16 & 3 & True  & 40 & 3 & 0.2 & 48  & 0.00023 \\
+        P02 & 56 & 3 & False &    &   & 0.2 & 96  & 0.00060 \\
+        P03 & 16 & 3 & True  & 32 & 3 & 0.1 & 64  & 0.00051 \\
+        P04 & 40 & 3 & True  & 40 & 3 & 0.2 & 128 & 0.00034 \\
+        P05 & 32 & 5 & True  & 48 & 5 & 0.3 & 96  & 0.00142 \\
+        P06 & 56 & 3 & False &    &   & 0.2 & 96  & 0.00060 \\
+        P07 & 8  & 5 & True  & 8  & 3 & 0.4 & 48  & 0.00018 \\
+        P08 & 40 & 3 & False &    &   & 0.3 & 16  & 0.00156 \\
+        P09 & 16 & 3 & True  & 16 & 5 & 0.5 & 80  & 0.00074 \\
+        P10 & 40 & 3 & False &    &   & 0.5 & 80  & 0.00398 \\
+        P11 & 40 & 3 & False &    &   & 0.5 & 80  & 0.00398 \\
+        P12 & 40 & 3 & False &    &   & 0.3 & 16  & 0.00156 \\
+        P13 & 40 & 3 & False &    &   & 0.5 & 32  & 0.00126 \\
+        P14 & 56 & 5 & False &    &   & 0.3 & 32  & 0.00059 \\
+        P15 & 64 & 5 & False &    &   & 0.2 & 112 & 0.00012 \\
+        P16 & 32 & 3 & False &    &   & 0.1 & 48  & 0.00037 \\
+        P17 & 16 & 5 & False &    &   & 0.4 & 112 & 0.00068 \\
+        P18 & 40 & 3 & False &    &   & 0.3 & 16  & 0.00156 \\
+        P19 & 56 & 3 & False &    &   & 0.2 & 96  & 0.00060 \\
+        P20 & 16 & 3 & True  & 16 & 5 & 0.5 & 80  & 0.00074 \\
+        P21 & 40 & 3 & False &    &   & 0.5 & 32  & 0.00126 \\
+        P22 & 40 & 5 & False &    &   & 0.2 & 80  & 0.00140 \\
+        P23 & 24 & 5 & True  & 8  & 3 & 0.3 & 112 & 0.00023 \\
+        P24 & 64 & 3 & False &    &   & 0.1 & 80  & 0.00014 \\
+        P25 & 48 & 3 & False &    &   & 0.2 & 16  & 0.00061 \\
+        P26 & 48 & 3 & False &    &   & 0.1 & 32  & 0.00021 \\
+        P27 & 24 & 5 & False &    &   & 0.5 & 64  & 0.00299 \\
+        P28 & 32 & 3 & True  & 8  & 5 & 0.5 & 112 & 0.00483 \\
+        P29 & 24 & 5 & False &    &   & 0.3 & 96  & 0.00614 \\
         \hline
     \end{tabular}
 \end{table}

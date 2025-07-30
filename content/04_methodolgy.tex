@@ -1,7 +1,7 @@
 \section{Methodology}
 
 This section describes the systematic approach we used to investigate whether a machine learning model can distinguish between CIFAR-10 and 
-ImageNet images within the CINIC-10 dataset. Our methodology spans data preparation, model selection, training procedures, and evaluation metrics.
+ImageNet images within the CINIC-10 dataset. Our methodology spans data preparation, model selection, training procedures and evaluation metrics.
 
 \subsection{Problem Formulation}
 We define the task as a binary classification problem: Given a $32 \times 32$ RGB image from the CINIC-10 dataset, can a model predict whether it 
@@ -18,7 +18,7 @@ Before training models, we conducted an exploratory analysis of low level image 
 
 \subsection{Model Architectures}
 To evaluate the learnability of the source domain in CINIC-10, we trained a series of models with increasing complexity. We started with naive 
-baselines, explored classical machine learning methods, and ended with deep learning architectures.
+baselines, explored classical machine learning methods and ended with deep learning architectures.
 To establish meaningful lower bounds, we implemented two simple baseline models and trained a Random Forest classifier using flattened image vectors
 which served as a non-deep-learning benchmark.
 As a neural baseline, we trained a fully connected model without convolutional layers.
@@ -27,7 +27,7 @@ We visualized its learned kernels and activation maps to understand the spatial 
 Subsequently, a slightly more complex model was trained, with hyperparameter optimization based on validation accuracy, 
 to obtain a more realistic yet still lightweight architecture.
 As a more advanced deep learning model, we trained a ResNet-18 architecture to evaluate how well a deep residual network can distinguish the domain origin.
-This model serves as an upper bound in terms of complexity and performance. Hyperparameter optimization was omitted due to the model's already 
+This model serves as an upper bound in terms of complexity and performance. ResNet-18 hyperparameter optimization was omitted due to the model's already 
 sufficient accuracy and the associated time complexity.
 
 

@@ -16,7 +16,10 @@
 %predictable for deep learning models. This confirms the presence of a domain shift in the CINIC-10 dataset and underscores the importance of domain 
 %adaptation techniques in real-world applications, where model predictions should not rely on superficial domain-specific features.
 %
-%To investigate the impact of resolution artifacts introduced during dataset construction, we explored upscaling and downscaling techniques. Following the approach outlined in the CINIC-10 GitHub repository \cite{cinic10_github}, we rescaled images using the same downsampling algorithm used to generate the dataset. We tested various combinations: upscaling and downscaling only CIFAR-10 images, only ImageNet images, and both. We trained models on original (non-rescaled) images and evaluated performance when test images were rescaled accordingly.
+%To investigate the impact of resolution artifacts introduced during dataset construction, we explored upscaling and downscaling techniques. Following the 
+%approach outlined in the CINIC-10 GitHub repository \cite{cinic10_github}, we rescaled images using the same downsampling algorithm used to generate the dataset.
+%We tested various combinations: upscaling and downscaling only CIFAR-10 images, only ImageNet images and both. We trained models on original (non-rescaled) 
+%images and evaluated performance when test images were rescaled accordingly.
 %
 %Interestingly, training models on both scaled and non-scaled images did not prevent learning, although it slowed convergence slightly in the case 
 %of minimal CNNs. More surprisingly, rescaling only the CIFAR-10 test images led to a slight improved classification performance, while rescaling 
@@ -55,11 +58,11 @@ highlighting how easily deep networks can pick up on structural cues tied to the
 CINIC-10 and raises concerns for tasks where domain independence is important.
 
 To explore how scaling affects model performance, we tried upscaling and downscaling the CIFAR-10 and ImageNet images using the same method 
-described in the CINIC-10 repository~\cite{cinic10_github}. We tested multiple scenarios: rescaling only one of the domains, both, or none. 
+described in the CINIC-10 repository~\cite{cinic10_github}. We tested multiple scenarios: rescaling only one of the domains, both or none. 
 Training on mixed scaled and non-scaled data was still effective, though convergence slowed for small CNNs. Surprisingly for models trained on the 
 normal dataset and up- and down- scaling only the CIFAR-10 test images slightly improved performance, while rescaling ImageNet images reduced 
 accuracy. We had expected the opposite effect. This unexpected result suggests that interpolation artifacts might have made CIFAR-10 images more 
-easily identifiable. Further testing is needed to understand this better.
+easily identifiable. Further testing is needed to understand this better and was not included in the main part of this report due to insufficient testing.
 
 We also visualized filters from a minimal CNN model that achieved 96\% accuracy. However, the visualizations offered limited insight, suggesting 
 that the model relied on subtle differences not easily interpreted. These are included in 

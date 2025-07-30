@@ -2,7 +2,7 @@
 \label{sec:Models and Results}
 This section presents a summary of each model's performance and includes key visualizations to illustrate their predictive capabilities.
 A decision threshold of 0.5 was used for all models producing continuous predictions — i.e., predictions were classified as class 1 if the output 
-was greater than 0.5, and as class 0 otherwise.
+was greater than 0.5 and as class 0 otherwise.
 
 \subsection{Baselines: Random and Majority Guessing}
 
@@ -18,9 +18,9 @@ These baselines confirm that a high accuracy can be misleading in imbalanced dat
 \subsection{Random Forest Classifier}
 
 Our non-deep learning benchmark was built using scikit-learn's \texttt{RandomForestClassifier}. We tested all combinations of the parameters 
-\texttt{n\_estimators} (100, 150), \texttt{max\_depth} (None, 10, 20), \texttt{min\_samples\_split} (2, 5, 10), \texttt{max\_features} (\texttt{sqrt}, \texttt{log2}), 
+\texttt{n\_estimators} (100, 150), \texttt{max\_depth} (None, 10, 20), \texttt{min\_samples\_split} (2, 5, 10), \texttt{max\_features} (\texttt{sqrt}, \texttt{log2}) 
 and \texttt{criterion} (\texttt{gini}, \texttt{entropy}, \texttt{log\_loss}). The best performing model achieved an accuracy of \textbf{78.53\%}, 
-which is again close to majority guessing. It predicted \texttt{ImageNet} in 89,188 out of 90,000 cases, thus strongly favouring the \texttt{ImageNet} domain.
+which is close to majority guessing accuracy. It predicted \texttt{ImageNet} in 89,188 out of 90,000 cases, thus strongly favouring the \texttt{ImageNet} domain.
 
 %Our non-deep learning benchmark, was build using scikit-learn's \texttt{RandomForestClassifier}.
 %Using the parameter candidates
@@ -43,9 +43,10 @@ The used MLP model used the architecture
     \item Dense(1, Sigmoid)
 \end{itemize}
 and reached a test accuracy of \textbf{78\%}, predicting \texttt{ImageNet} for 88,828 out of 90,000 test images. 
-This again aligns with the majority baseline, showing that without spatial features, the model mostly learns the class imbalance.
+This again aligns with the majority baseline, showing that without spatial features, the model only learns the class imbalance.
 
 \subsection{Minimal CNN for Visualization}
+\label{subsec: Minimal CNN for Visualization}
 For interpretability, we trained a minimal convolutional network designed to extract and visualize learned kernels and feature maps:
 \begin{itemize}
     \item Conv2D(2 filters)(3x3 Kernel) → MaxPooling2D → Flatten → Dense(1, Sigmoid)
@@ -128,4 +129,4 @@ The nearly perfect separation between CIFAR-10 and ImageNet images supports the 
     \label{fig:ResNet18_combined}
 \end{figure}
 
-These results confirm that deep architectures like ResNet-18 can achieve near-perfect source discrimination, setting a strong upper performance bound for this task.
+These results confirm that deep architectures like ResNet-18 can achieve near perfect source discrimination, setting a strong upper performance bound for this task.

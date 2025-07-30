@@ -2,8 +2,8 @@
 
 \section*{Abstract}
 The goal of this project was to build a classifier capable of determining whether an image in the CINIC-10 dataset originates from CIFAR-10 or from ImageNet. 
-To this end, we analyzed statistical and visual differences between the two domains, including RGB mean values, per-class variance, and structural image characteristics.
-We tested various machine learning approaches, including Convolutional Neural Networks (CNNs), Multi-Layer Perceptrons (MLPs), and classical models like Random Forests. 
+To this end, we analyzed statistical and visual differences between the two domains, including RGB mean values, per-class variance and structural image characteristics.
+We tested various machine learning approaches, including Convolutional Neural Networks (CNNs), Multi-Layer Perceptrons (MLPs) as well as classical models like Random Forests. 
 In addition to training models, we explored interpretability techniques such as visualizing activation maps and analyzing learned convolutional filters. 
 The results show that even without class labels, models can learn to distinguish the source domain of images based on subtle differences in data characteristics.
 All code and instructions to reproduce the results are available in the associated GitHub repository~\cite{cinic10-source-classifier}.
@@ -11,11 +11,12 @@ All code and instructions to reproduce the results are available in the associat
 \section*{Kurzfassung}
 \begin{foreignlanguage}{german}
 In diesem Projekt wurde das Ziel verfolgt, einen Klassifikator zu entwickeln, der innerhalb des CINIC-10-Datensatzes erkennen kann, ob ein Bild ursprünglich aus CIFAR-10 oder aus ImageNet 
-stammt. Dafür wurden zunächst die Metadaten ausgewertet und visuelle sowie statistische Unterschiede zwischen den beiden Quellen analysiert, z. B. RGB-Mittelwerte, 
+stammt. Dafür wurden zunächst die Metadaten ausgewertet und visuelle sowie statistische Unterschiede zwischen den beiden Quellen analysiert, z.B. RGB-Mittelwerte, 
 Varianz pro Klasse und Strukturmerkmale der Bilder.
 Zur Modellentwicklung wurden verschiedene Machine Learning Ansätze getestet, darunter Convolutional Neural Networks (CNNs), Multi-Layer Perceptrons (MLPs) sowie klassische Verfahren wie 
 Random Forests.
-Neben der Modellierung wurden auch Ansätze zur Interpretation der Modelle verfolgt, etwa durch Visualisierung einzelner Aktivierungskarten oder Analyse gelernter Filter. 
+Neben der Modellierung wurden auch Ansätze zur Interpretation der Modelle verfolgt, etwa durch Visualisierung einzelner Bilder nach durchlauf des Kernel Filters oder 
+durch die Visualisierung gelernter Filter. 
 Das Projekt zeigt, dass auch ohne explizite Objektklassenunterscheidung Unterschiede in der Datenquelle durch maschinelles Lernen erkannt werden können.
-Der vollständige Code sowie eine Anleitung zur Reproduktion der Ergebnisse sind im zugehörigen GitHub-Repository~\cite{cinic10-source-classifier} zu finden.
+Der vollständige Code sowie eine Anleitung für Basis Einstellungen sind im zugehörigen GitHub-Repository~\cite{cinic10-source-classifier} zu finden.
 \end{foreignlanguage}

@@ -1,9 +1,9 @@
 \section{Dataset Overview}
 \label{sec:Dataset Overview}
-The CINIC-10 dataset combines images from CIFAR-10 and downsampled ImageNet, organized into three standard splits: \texttt{train}, \texttt{valid}, 
-and \texttt{test}. Each split contains an equal number of $32 \times 32$ color images from the same ten object categories: \textit{airplane}, 
-\textit{automobile}, \textit{bird}, \textit{cat}, \textit{deer}, \textit{dog}, \textit{frog}, \textit{horse}, \textit{ship}, and \textit{truck}.
-Each class in each split consists of 2,000 CIFAR-10 images and 7,000 ImageNet images, resulting in a total of 9,000 images per class per split.
+The CINIC-10 dataset combines images from CIFAR-10 and downsampled ImageNet organized into the three standard splits of \texttt{train}, \texttt{valid}, 
+and \texttt{test}. Each split contains an equal number of $32 \times 32$ color images from the same ten object categories \textit{airplane}, 
+\textit{automobile}, \textit{bird}, \textit{cat}, \textit{deer}, \textit{dog}, \textit{frog}, \textit{horse}, \textit{ship} and \textit{truck}.
+Each class in each split consists of 2000 CIFAR-10 images and 7000 ImageNet images, resulting in a total of 9000 images per class per split.
 
 \subsection{Preprocessing}
 To enable our domain classification task we first annotated each image with a \texttt{source} label. This label was inferred directly from the 
@@ -12,7 +12,7 @@ identifier. This naming convention was inferred from the README file of the CINI
 added to a metadata table stored as a CSV file.
 Each row in the resulting metadata file contains:
 \begin{itemize}
-  \item \texttt{split}: one of \texttt{train}, \texttt{valid}, or \texttt{test}
+  \item \texttt{split}: one of \texttt{train}, \texttt{valid} or \texttt{test}
   \item \texttt{category}: the object class label (e.g., \textit{cat}, \textit{truck})
   \item \texttt{filename} and \texttt{full\_path}: the image filename and relative path
   \item \texttt{source}: either \texttt{CIFAR-10} or \texttt{ImageNet}
@@ -31,7 +31,7 @@ comparisons and reproducible results.
 To illustrate the characteristics and distribution of the CINIC-10 dataset, we include a set of visualizations and image examples.
 
 Figure~\ref{fig:class-distribution} shows the distribution of images per class and source in the 
-CINIC-10 dataset. Each class in each split contains exactly 9,000 images, but the internal composition of those classes is imbalanced with 7000
+CINIC-10 dataset. Each class in each split contains exactly 9000 images, but the internal composition of those classes is imbalanced with 7000
 images coming from ImageNet and 2000 from CIFAR-10. This imbalance could influence model learning and needs to be accounted for during 
 evaluation.
 

@@ -5,21 +5,21 @@ and \textbf{ImageNet}~\cite{deng2009imagenet}. CIFAR-10 consists of low-resoluti
 designed for rapid prototyping of deep learning models. In contrast, ImageNet offers millions of high-resolution, hierarchically organized images, capturing a wide variety of real-world content.
 
 The \textbf{CINIC-10} dataset \cite{darlow2018cinic} was introduced to bridge the gap between CIFAR-10 and ImageNet in both scale and diversity. It consists of 
-270,000 32x32 RGB images equally distributed across the same 10 classes as CIFAR-10. 60,000 datapoints originate from CIFAR-10, and the other 210,000 comprises downsampled ImageNet 
+270,000 32x32 RGB images equally distributed across the same 10 classes as CIFAR-10. 60,000 datapoints originate from CIFAR-10 and the other 210,000 comprises downsampled ImageNet 
 images mapped to equivalent CIFAR-10 categories. While CINIC-10 was primarily designed for benchmarking and training stability evaluation, the inclusion of two distinct data sources 
 introduces an implicit domain shift within each class.
 
 \textbf{Domain shift}, the phenomenon where data distributions differ between training and testing environments, has been extensively studied in the contexts of domain adaptation and 
-generalization \cite{wang2018deep}. Prior work has shown that even subtle differences in image statistics, such as background texture, object positioning, or lighting, can significantly 
-affect model performance and generalizability \cite{torralba2011unbiased, recht2019imagenet}. These differences are often referred to as dataset bias, and models may learn to exploit such 
+generalization \cite{wang2018deep}. Prior work has shown that even subtle differences in image statistics, such as background texture, object positioning or lighting, can significantly 
+affect model performance and generalizability \cite{torralba2011unbiased, recht2019imagenet}. These differences are often referred to as dataset bias and models may learn to exploit such 
 artifacts rather than focusing on semantically meaningful content.
 
 The presence of label noise is another important consideration when working with large-scale datasets. Northcutt et al. \cite{northcutt2021confident} identified that datasets like ImageNet 
 may contain a non-trivial amount of mislabeled images, potentially impacting training dynamics and evaluation reliability.
 
 Our work builds on these observations by explicitly formulating a \textit{source classification} task within CINIC-10. Instead of predicting object classes, we focus on whether a model
-can identify whether an image originated from CIFAR-10 or ImageNet. To our knowledge, this direction—treating source domain as a predictive label—has received relatively little attention. 
+can identify whether an image originated from CIFAR-10 or ImageNet. To our knowledge, this direction, treating source domain as a predictive label, has received relatively little attention. 
 The only closely related work we are aware of is the "Guess the Dataset" experiment proposed by Torralba and Efros in their paper \textit{Unbiased Look at Dataset Bias} 
 \cite{torralba2011unbiased}, where human participants were asked and ML Models trained to classify the dataset origin of an image. 
-Their work emphasizes how visual characteristics unrelated to semantic content, such as lighting, resolution, and framing, can allow both humans and models to identify dataset membership, 
+Their work emphasizes how visual characteristics unrelated to semantic content, such as lighting, resolution and framing, can allow both humans and models to identify dataset membership, 
 highlighting the presence of strong, exploitable dataset specific artifacts.
