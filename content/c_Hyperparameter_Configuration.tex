@@ -1,0 +1,28 @@
+\section{Hyperparameter Configurations}
+\label{sec:Hyperparameter Configurations}
+
+\begin{table}[H]
+    \centering
+    \caption{Ten out of 30 selected hyperparameter configurations explored during model tuning with Keras Tuner. Each configuration specifies 
+    convolutional filter sizes and kernel dimensions of the first convolution Layer, dropout rates (DR), dense layer size (DU = Dense Units), 
+    learning rate, and whether a second convolutional layer was used an its corresponding Filter number and Kernel size. 
+    These settings were evaluated to optimize validation accuracy.}
+    \label{tab:Hyperparameter_Config_tab}
+    \begin{tabular}{lrrlrrrrr}
+        \hline
+        \textbf{ID} & \textbf{Filt. 1} & \textbf{Kern. 1} & \textbf{Conv 2} & \textbf{DR} & \textbf{DU} & \textbf{LR} & 
+        \textbf{Filt. 2} & \textbf{Kern. 2} \\
+        \hline
+        P00 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
+        P01 & 16 & 3 & True  & 0.2 & 48  & 0.00023 & 40 & 3 \\
+        P02 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
+        P03 & 16 & 3 & True  & 0.1 & 64  & 0.00051 & 32 & 3 \\
+        P04 & 40 & 3 & True  & 0.2 & 128 & 0.00034 & 40 & 3 \\
+        P05 & 32 & 5 & True  & 0.3 & 96  & 0.00142 & 48 & 5 \\
+        P06 & 56 & 3 & False & 0.2 & 96  & 0.00060 &    &   \\
+        P07 & 8  & 5 & True  & 0.4 & 48  & 0.00018 & 8  & 3 \\
+        P08 & 40 & 3 & False & 0.3 & 16  & 0.00156 &    &   \\
+        P09 & 16 & 3 & True  & 0.5 & 80  & 0.00074 & 16 & 5 \\
+        \hline
+    \end{tabular}
+\end{table}

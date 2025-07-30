@@ -1,0 +1,51 @@
+%\section{Conclusion and Future Work}
+%
+%This work examined the domain identifiability of the CINIC-10 dataset, which merges CIFAR-10 and downsampled ImageNet images into a single 
+%benchmark. Although the two sources share class labels and image resolution, our experiments revealed that even simple models can reliably identify 
+%the source of an image. More powerful models, including a ResNet-18, achieved near-perfect accuracy by leveraging structural cues inherent in the 
+%data.
+%
+%These findings indicate that CINIC-10 retains source specific characteristics to an extent that allows models to easily separate the domains. This 
+%raises concerns for using CINIC-10 in tasks that assume domain invariance and highlights the importance of thorough dataset evaluation, especially 
+%in the context of transfer learning, fairness, and domain generalization.
+%
+%\subsection*{Future Work}
+%
+%Several promising directions remain for future investigation:
+%
+%\begin{itemize}
+%    \item \textbf{Human evaluation}: It would be interesting to test whether people can tell apart CIFAR-10 and ImageNet images. This could help 
+%    assess whether the domain differences exploited by models are also perceptible to humans.
+%
+%    \item \textbf{Other dataset combinations}: Similar experiments could be done with other merged datasets—like combining CIFAR-10 with STL-10 or 
+%    using subsets of Tiny ImageNet—to see whether such domain differences are common or specific to CINIC-10.
+%
+%    \item \textbf{Asymmetric scaling strategies}: Instead of downscaling both datasets the same way, one could try upscaling CIFAR-10 images 
+%    slightly and only downscale ImageNet images once (instead of reducing them too aggressively). This might help equalize their visual 
+%    characteristics without heavily degrading one side.
+%
+%    \item \textbf{Domain adaptation techniques}: Methods like domain-adversarial training, style transfer, or aligning feature distributions could 
+%    be used to reduce the model's reliance on domain-specific cues and shift its focus toward more meaningful features.
+%
+%    \item \textbf{Model interpretation}: To better understand how models make their decisions, one could apply explainability tools like saliency 
+%    maps or SHAP values to identify which image regions contribute most to source predictions.
+%\end{itemize}
+%
+%Ultimately, our findings highlight the importance of careful dataset design and evaluation, especially in contexts where fairness, robustness, or 
+%generalization across domains plays a critical role.
+
+% The Conclusion and Future Work above is to long and this below uses chat gpt to summarize and shorten so i stay within my page limits :)
+\section{Conclusion and Future Work}
+
+This work explored how easily the source domain of images in CINIC-10 can be learned. Despite having the same resolution and class labels, 
+models, ranging from simple baselines to a ResNet-18, were able to distinguish CIFAR-10 and ImageNet samples with high accuracy. This shows that 
+CINIC-10 preserves domain specific signals, which can mislead performance assessments in tasks that assume domain invariance.
+
+To build on this, future work could involve testing whether humans can also tell the sources apart, or repeating the experiments with other 
+combined datasets like CIFAR-10 and STL-10. Another interesting direction would be to experiment with asymmetric scaling strategies, such as 
+upscaling CIFAR-10 and only lightly downscaling ImageNet, to reduce domain cues. Techniques like adversarial domain adaptation or feature alignment 
+could help models focus on class relevant features instead. Finally, interpreting model behavior using tools like saliency maps or SHAP values 
+could offer deeper insights into what cues are being used for source prediction.
+
+In short, this study underscores the importance of evaluating dataset construction and model behavior, especially when generalization, fairness, or 
+robustness matter.

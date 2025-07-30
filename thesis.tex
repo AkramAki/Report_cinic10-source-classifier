@@ -19,12 +19,21 @@
 
 \setlength{\parindent}{0pt}
 
+\usepackage{scrlayer-scrpage}
+% Clear any previous header/footer settings
+\clearpairofpagestyles
+
+% Set the footer to the bottom right
+\ohead[\thepage]{\thepage}
+
+% Ensure page numbers are not in italics
+\setkomafont{pagefoot}{\normalfont}
 
 % Warning, if another latex run is needed
 \usepackage[aux]{rerunfilecheck}
 
 % just list chapters and sections in the toc, not subsections or smaller
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 %------------------------------------------------------------------------------
 %------------------------------ Fonts, Unicode, Language ----------------------
@@ -107,6 +116,9 @@
 % allows to include PDFs as full pages
 \usepackage{pdfpages}
 
+% Allows for figures wraped with text
+\usepackage{wrapfig}
+
 % Set the PDF Version of this document to 1.7 (1.4 is the current default)
 % This is needed so that PDFs with Version >1.5 can be included
 \pdfvariable minorversion=7
@@ -155,6 +167,10 @@
 \titlehead{\includegraphics[height=1.5cm]{logos/tu-logo.pdf}}
 
 \begin{document}
+% BEFORE TOC (e.g., Abstract, Acknowledgements)
+\pagenumbering{roman}  % i, ii, iii, ...
+\setcounter{page}{1}   % restart from i
+
 %\frontmatter
 \maketitle
 
@@ -168,23 +184,36 @@
 
 \newpage
 
+% MAIN CONTENT
+\pagenumbering{arabic} % 1, 2, 3, ...
+\setcounter{page}{1}   % restart from 1
+
 %\mainmatter
 % Hier beginnt der Inhalt mit Seite 1 in arabischen Ziffern
 \input{content/01_introduction.tex}
 \input{content/02_background.tex}
-\input{content/02_struktur.tex}
-\input{content/03_grundlagen.tex}
-\input{content/04_figs_tabs.tex}
+\input{content/03_dataset_overview.tex}
+\input{content/04_methodolgy.tex}
+\input{content/05_models_and_results.tex} \newpage
+\input{content/06_discussion.tex} \newpage
+\input{content/07_conclusion.tex} \newpage
 
-\appendix
+
+% APPENDIX
 % Hier beginnt der Anhang, nummeriert in lateinischen Buchstaben
-\input{content/a_anhang.tex}
+\appendix
+\newpage
+\renewcommand{\thesection}{\Alph{section}}  % A, B, C...
+
+\input{content/a_further_reading.tex} \newpage
+\input{content/b_filter_visuals.tex} \newpage
+\input{content/c_Hyperparameter_Configuration.tex} \newpage
 
 %\backmatter
 \printbibliography
 
 \cleardoublepage
 % From https://www.tu-dortmund.de/studierende/im-studium/pruefungsangelegenheiten/allgemeine-vordrucke/
-\includepdf{content/Eidesstattliche_Versicherung.pdf}
+% \includepdf{content/Eidesstattliche_Versicherung.pdf}
 
 \end{document}

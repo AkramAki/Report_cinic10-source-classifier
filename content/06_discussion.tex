@@ -1,0 +1,70 @@
+% \section{Discussion}
+%Our experiments confirm that the CINIC-10 dataset exhibits strong source-identifiable features. Even relatively simple models were able to 
+%distinguish between CIFAR-10 and ImageNet images with high accuracy. The Random Forest classifier, trained on flattened pixel data, achieved nearly 
+%the same accuracy as a majority-guessing baseline, predicting ImageNet in over 89,000 out of 90,000 test cases. This suggests that the 
+%distinguishability between the two sources relies heavily on two-dimensional spatial structures rather than just global pixel statistics. Despite 
+%all images having identical dimensions and class labels, the hypothesis that the two sources differ in their visual characteristics can still be 
+%answered affirmatively, as supported by the accuracy results presented in \autoref{sec:Models and Results}.
+%
+%More powerful models, including convolutional neural networks and a ResNet-18, further demonstrated the learnability of the domain source. The 
+%ResNet-18 achieved a test accuracy of 99.26\%, indicating that structural cues in the image data make the source label trivially learnable when 
+%using deep models. This confirms the domain shift inherent in the CINIC-10 construction and underscores the need for domain adaptation strategies 
+%when applying such datasets in real-world settings due to image predictions need to be not reliant on domain.
+%
+%More powerful models, including convolutional neural networks and a ResNet-18, further demonstrated the ease with which the source domain can be 
+%learned. The ResNet-18 model achieved a test accuracy of 99.26\%, highlighting that structural cues in the image data make the source label 
+%predictable for deep learning models. This confirms the presence of a domain shift in the CINIC-10 dataset and underscores the importance of domain 
+%adaptation techniques in real-world applications, where model predictions should not rely on superficial domain-specific features.
+%
+%To investigate the impact of resolution artifacts introduced during dataset construction, we explored upscaling and downscaling techniques. Following the approach outlined in the CINIC-10 GitHub repository \cite{cinic10_github}, we rescaled images using the same downsampling algorithm used to generate the dataset. We tested various combinations: upscaling and downscaling only CIFAR-10 images, only ImageNet images, and both. We trained models on original (non-rescaled) images and evaluated performance when test images were rescaled accordingly.
+%
+%Interestingly, training models on both scaled and non-scaled images did not prevent learning, although it slowed convergence slightly in the case 
+%of minimal CNNs. More surprisingly, rescaling only the CIFAR-10 test images led to a slight improved classification performance, while rescaling 
+%ImageNet images resulted in a significantly reduced accuracy. This contradicts our expectation that CIFAR-10 images, after being upscaled, would 
+%resemble ImageNet images more closely and thus be misclassified as such. Instead, the models became more confident in identifying CIFAR-10. Due to 
+%time constraints, we were unable to fully explore this unexpected asymmetry, but it suggests that the interpolation artifacts introduced by 
+%rescaling might make CIFAR-10 images more distinguishable rather than less.
+%
+%Another avenue we explored involved visualizing learned filters of a minimal CNN model. Despite achieving high accuracy (96\%) and favorable 
+%F1-scores (0.91 for CIFAR-10 and 0.97 for ImageNet), these visualizations yielded little interpretative value, suggesting that simple models may 
+%rely on subtle cues that are not easily visualized. Filter visualizations for this minimal network are included in Appendix~\ref{sec:Filter and 
+%Activation Visualizations — Minimal CNN}.
+%
+%Overall, our findings highlight that even in a dataset constructed to balance classes and resolution, the underlying data distributions remain 
+%distinguishable by source. This raises concerns for any supervised learning task that assumes dataset homogeneity. While deeper models can exploit 
+%these domain cues to achieve near-perfect classification, such performance may be misleading in applications where the source domain should be 
+%irrelevant.
+%
+%Our results demonstrate that, although CIFAR-10 and ImageNet images may not appear easily distinguishable to the human eye—a claim that could be 
+%validated through user studies—underlying differences between the source domains remain highly learnable. This presents a challenge for supervised 
+%learning tasks that assume domain invariance. Deep models, in particular, can exploit subtle domain-specific signals to achieve high performance. 
+%However, such results may be misleading in applications where the source of the data should play no role in the prediction. These findings 
+%highlight the importance of careful dataset construction and the need for domain adaptation strategies when deploying models in heterogeneous or 
+%cross-domain settings.
+
+% The discussion above is to long and this below uses chat gpt to summarize and shorten so i stay within my page limits :)
+\section{Discussion}
+
+Our experiments show that the CINIC-10 dataset contains strong source identifiable signals. Even simple models could reliably tell apart CIFAR-10 
+and ImageNet images. The Random Forest classifier and Dense Neural Network, trained on flattened pixels, performed close to a majority baseline and 
+heavily favored predicting ImageNet. This suggests that the differences between the two domains rely on spatial structures rather than just basic 
+statistics.
+
+More complex models, such as CNNs and ResNet-18, were able to separate the domains almost perfectly. The ResNet-18 model reached 99.26\% accuracy, 
+highlighting how easily deep networks can pick up on structural cues tied to the image source. This confirms the presence of domain shift in 
+CINIC-10 and raises concerns for tasks where domain independence is important.
+
+To explore how scaling affects model performance, we tried upscaling and downscaling the CIFAR-10 and ImageNet images using the same method 
+described in the CINIC-10 repository~\cite{cinic10_github}. We tested multiple scenarios: rescaling only one of the domains, both, or none. 
+Training on mixed scaled and non-scaled data was still effective, though convergence slowed for small CNNs. Surprisingly for models trained on the 
+normal dataset and up- and down- scaling only the CIFAR-10 test images slightly improved performance, while rescaling ImageNet images reduced 
+accuracy. We had expected the opposite effect. This unexpected result suggests that interpolation artifacts might have made CIFAR-10 images more 
+easily identifiable. Further testing is needed to understand this better.
+
+We also visualized filters from a minimal CNN model that achieved 96\% accuracy. However, the visualizations offered limited insight, suggesting 
+that the model relied on subtle differences not easily interpreted. These are included in 
+Appendix~\ref{sec:Filter and Activation Visualizations — Minimal CNN}.
+
+Even though CIFAR-10 and ImageNet images appear visually similar, models clearly learn to distinguish them. This challenges the assumption that 
+combining datasets with matching resolution and labels removes domain specific cues. It underlines the importance of domain adaptation techniques 
+and careful dataset design for fair and reliable model training.

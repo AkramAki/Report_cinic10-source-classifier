@@ -1,0 +1,48 @@
+\section{Methodology}
+
+This section describes the systematic approach we used to investigate whether a machine learning model can distinguish between CIFAR-10 and 
+ImageNet images within the CINIC-10 dataset. Our methodology spans data preparation, model selection, training procedures, and evaluation metrics.
+
+\subsection{Problem Formulation}
+We define the task as a binary classification problem: Given a $32 \times 32$ RGB image from the CINIC-10 dataset, can a model predict whether it 
+originates from the CIFAR-10 or ImageNet domain, regardless of its class label? Each image is labeled with its source domain (0 for CIFAR-10, 1 for 
+ImageNet), which serves as the prediction target.
+
+\subsection{Data Preparation}
+The details of the CINIC-10 dataset structure, class distribution and preprocessing steps are summarized in the \autoref{sec:Dataset Overview} (see Figures~\ref{fig:class-distribution} and~\ref{fig:automobile-comparison}). 
+All data handling steps were based on the structure described there.
+
+\subsection{Exploratory Statistical Analysis}
+Before training models, we conducted an exploratory analysis of low level image statistics which is explained in \autoref{subsec:Examples and Visualizations}
+(See Figure~\ref{fig:rgb-stats} for visualization).
+
+\subsection{Model Architectures}
+To evaluate the learnability of the source domain in CINIC-10, we trained a series of models with increasing complexity. We started with naive 
+baselines, explored classical machine learning methods, and ended with deep learning architectures.
+To establish meaningful lower bounds, we implemented two simple baseline models and trained a Random Forest classifier using flattened image vectors
+which served as a non-deep-learning benchmark.
+As a neural baseline, we trained a fully connected model without convolutional layers.
+We developed a minimal convolutional neural network using Keras to better capture spatial structure.
+We visualized its learned kernels and activation maps to understand the spatial features it relied on. 
+Subsequently, a slightly more complex model was trained, with hyperparameter optimization based on validation accuracy, 
+to obtain a more realistic yet still lightweight architecture.
+As a more advanced deep learning model, we trained a ResNet-18 architecture to evaluate how well a deep residual network can distinguish the domain origin.
+This model serves as an upper bound in terms of complexity and performance. Hyperparameter optimization was omitted due to the model's already 
+sufficient accuracy and the associated time complexity.
+
+
+\subsection{Training Procedure}
+\begin{itemize}
+    \item The baseline models (Random Guessing, Majority Guessing, Random Forest) were trained using the combined \texttt{train} and \texttt{valid} splits.
+    \item The rest of the models were trained on the \texttt{train} split and validated on the \texttt{valid} split.
+    \item The final evaluation was performed on the separate \texttt{test} set for all models.
+    \item Neural networks used the \texttt{Adam} optimizer with binary cross-entropy loss.
+\end{itemize}
+
+\subsection{Evaluation Metrics}
+To evaluate model performance, we used the following metrics
+\begin{itemize}
+    \item \textbf{\texttt{classification\_report} from \texttt{scikit-learn}}: This provides precision, recall, F1-score and accuracy for each class \cite{scikit-learn}.
+    \item \textbf{Confusion Matrix}: Used to visualize the classification performance and distinguish between CIFAR-10 and ImageNet predictions. We 
+    employed the \texttt{heatmap} function from the \texttt{Seaborn} library for better readability and presentation \cite{Waskom2021}.
+\end{itemize}

@@ -1,7 +1,7 @@
 \section{Background and Related Work}
 
-Image classification is a foundational task in computer vision and has been extensively studied through standardized benchmark datasets such as \textbf{CIFAR-10} 
-\cite{krizhevsky2009learning} and \textbf{ImageNet} \cite{deng2009imagenet}. CIFAR-10 consists of low-resolution (32x32) images across 10 object categories, 
+Image classification is a foundational task in computer vision and has been extensively studied through standardized benchmark datasets such as \textbf{CIFAR-10}~\cite{krizhevsky2009learning} 
+and \textbf{ImageNet}~\cite{deng2009imagenet}. CIFAR-10 consists of low-resolution (32x32) images across 10 object categories, 
 designed for rapid prototyping of deep learning models. In contrast, ImageNet offers millions of high-resolution, hierarchically organized images, capturing a wide variety of real-world content.
 
 The \textbf{CINIC-10} dataset \cite{darlow2018cinic} was introduced to bridge the gap between CIFAR-10 and ImageNet in both scale and diversity. It consists of 
@@ -20,6 +20,6 @@ may contain a non-trivial amount of mislabeled images, potentially impacting tra
 Our work builds on these observations by explicitly formulating a \textit{source classification} task within CINIC-10. Instead of predicting object classes, we focus on whether a model
 can identify whether an image originated from CIFAR-10 or ImageNet. To our knowledge, this direction—treating source domain as a predictive label—has received relatively little attention. 
 The only closely related work we are aware of is the "Guess the Dataset" experiment proposed by Torralba and Efros in their paper \textit{Unbiased Look at Dataset Bias} 
-\cite{torralba2011unbiased}, where human participants were asked to classify the dataset origin of an image. 
+\cite{torralba2011unbiased}, where human participants were asked and ML Models trained to classify the dataset origin of an image. 
 Their work emphasizes how visual characteristics unrelated to semantic content, such as lighting, resolution, and framing, can allow both humans and models to identify dataset membership, 
 highlighting the presence of strong, exploitable dataset specific artifacts.
